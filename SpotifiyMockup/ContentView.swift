@@ -95,11 +95,33 @@ struct albumView : View {
     }
 }
 
-struct extraView : View {
-    var body: some View {
-        Text("Implement Me")
+struct extraView: View {                // 1
+    var body: some View {                // 2
+        HStack {                         // 3
+            Image(systemName: "chevron.down") // 4
+                .font(.title2)           // 5
+
+            Spacer()                     // 6
+
+            Text("Now Playing")          // 7
+                .font(.subheadline)      // 8
+                .fontWeight(.semibold)   // 9
+
+            Spacer()                     // 10
+
+            HStack(spacing: 20) {        // 11
+                Image(systemName: "heart")                // 12
+                Image(systemName: "square.and.arrow.up")  // 13
+                Image(systemName: "ellipsis")             // 14
+            }
+            .font(.body)                 // 15
+        }
+        .padding(.horizontal)            // 16
+        .padding(.top, 6)                // 17
+        .foregroundColor(.white)         // 18
     }
 }
+
 
 #Preview {
     ContentView()
