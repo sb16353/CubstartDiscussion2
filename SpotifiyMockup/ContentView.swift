@@ -46,9 +46,22 @@ struct BlurView: UIViewRepresentable {
 
 struct titleView: View {
     var body: some View {
-        Text("Implement Me")
+        VStack(spacing: 6) {
+            Text("Espresso")
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+
+            Text("Sabrina Carpenter")
+                .font(.subheadline)
+                .foregroundColor(Color(.systemGray3))
+        }
+        .padding(.horizontal)
     }
 }
+
 
 struct timeView: View {
     var body: some View {
@@ -82,43 +95,77 @@ struct timeView: View {
 
 struct playbackView: View {
     var body: some View {
-        Text("Implement Me")
+        VStack(spacing: 10) {
+            HStack {
+                Image(systemName: "shuffle")
+                Spacer()
+                Image(systemName: "backward.fill")
+                Spacer()
+                Button(action: {
+                    // play action goes here
+                }) {
+                    Image(systemName: "play.fill")
+                        .font(.system(size: 28))
+                        .padding(18)
+                        .background(Circle().fill(Color.white))
+                        .foregroundColor(.black)
+                }
+                Spacer()
+                Image(systemName: "forward.fill")
+                Spacer()                         
+                Image(systemName: "repeat")      
+            }
+            .padding(.horizontal, 40)            
+            .foregroundColor(.white)            
+
+            HStack {                             
+                Text("Device")
+                    .font(.caption)
+                    .foregroundColor(Color(.systemGray3))
+                Spacer()
+                Image(systemName: "speaker.wave.3.fill")
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal, 36)          
+            .padding(.bottom, 6)
+        }
     }
 }
 
+
 struct albumView : View {
     var body: some View {
-        Image("Image")
+        Image("Espresso")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(10)
     }
 }
 
-struct extraView: View {                // 1
-    var body: some View {                // 2
-        HStack {                         // 3
-            Image(systemName: "chevron.down") // 4
-                .font(.title2)           // 5
+struct extraView: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "chevron.down")
+                .font(.title2)
 
-            Spacer()                     // 6
+            Spacer()
 
-            Text("Now Playing")          // 7
-                .font(.subheadline)      // 8
-                .fontWeight(.semibold)   // 9
+            Text("Now Playing")
+                .font(.subheadline)
+                .fontWeight(.semibold)
 
-            Spacer()                     // 10
+            Spacer()
 
-            HStack(spacing: 20) {        // 11
-                Image(systemName: "heart")                // 12
-                Image(systemName: "square.and.arrow.up")  // 13
-                Image(systemName: "ellipsis")             // 14
+            HStack(spacing: 20) {
+                Image(systemName: "heart")
+                Image(systemName: "square.and.arrow.up")
+                Image(systemName: "ellipsis")            
             }
-            .font(.body)                 // 15
+            .font(.body)                
         }
-        .padding(.horizontal)            // 16
-        .padding(.top, 6)                // 17
-        .foregroundColor(.white)         // 18
+        .padding(.horizontal)       
+        .padding(.top, 6)           
+        .foregroundColor(.white)   
     }
 }
 
